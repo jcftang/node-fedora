@@ -1,0 +1,23 @@
+{
+  "author": "QMJ <howest-interns@tchpc.tcd.ie> (http://www.tchpc.tcd.ie/)",
+  "name": "fedora",
+  "description": "Digital Repository Ireland - fedora backend operations",
+  "version": "0.0.1",
+  "homepage": "http://www.tchpc.tcd.ie/",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@howest-server.tchpc.tcd.ie/howest/node/node-fedora"
+  },
+  "main": "./lib/fedora",
+  "scripts": {
+    "test": "make test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+	"expresso": ">= 0.9.2"
+  },
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}
