@@ -30,7 +30,15 @@ module.exports = {
 			done();
 		});
 	},
-	'test4 GetNextPID': function(done) {
+	'test4 DeleteObject': function(done) {
+		
+		fedora.deleteObject(testResult, function(resultData){
+			console.log(resultData);
+			//assert.includes(resultData,"node:");
+			done();
+		});
+	},
+	'test5 GetNextPID': function(done) {
 		
 		fedora.getNextPID("node", function(resultData){
 			assert.includes(resultData,"node:");
@@ -38,5 +46,3 @@ module.exports = {
 		});
 	}
 };
-// uuid
-//mocha, connect
