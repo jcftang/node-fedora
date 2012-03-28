@@ -1,22 +1,40 @@
 var assert = require('assert');
 var fedora = require('fedora');
-
+var testNamespace = "node";
+var testLabel = "A very nice test label";
+var testResult = "";
 module.exports = {
-	'test1 GetFedoraList': function(beforeExit, assert) {
-		xml = fedora.getFedoraList();
-		assert.isDefined(xml);
-		assert.isNotNull(xml);
-	},
-	'test2 GetFedoraItem': function(beforeExit, assert) {
-		fedora.getFedoraObject("dri:100", function(resultData){
-			
-			assert.includes(resultData,"dri:100");
+	'test1 CreateFedoraObject': function(done) {
+		
+		fedora.createFedoraObject(testNamespace,testLabel, function(result){
+			testResult = result;
+			console.log("CreateFedoraObject" + testResult);
+			assert.includes(result,"node:");
+			done();
 		});
 	},
-	'test3 GetNextPID': function(beforeExit, assert) {
+	'test2 GetFedoraList': function(done) {
+		console.log("GetFedoraList" + testResult);
+		fedora.getFedoraList(function(resultData){
+			assert.isDefined(resultData);
+			done();
+		}, 
+		function(e){
+			console.log(e);
+		});
+	},
+	'test3 GetFedoraItem': function(done) {
+		console.log("GetFedoraItem" + testResult);
+		fedora.getFedoraObject(testResult, function(resultData){
+			assert.includes(resultData,testResult);
+			done();
+		});
+	},
+	'test4 GetNextPID': function(done) {
 		
-		fedora.getNextPID("node", function(result){
-			assert.includes(result,"node:");
+		fedora.getNextPID("node", function(resultData){
+			assert.includes(resultData,"node:");
+			done();
 		});
 	}
 };
