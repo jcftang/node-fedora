@@ -4,6 +4,13 @@ var testNamespace = "node";
 var testLabel = "A very nice test label";
 var testResult = "";
 module.exports = {
+	'test0 GetNextPID': function(done) {
+		
+		fedora.getNextPID("node", function(resultData){
+			assert.includes(resultData,"node:");
+			done();
+		});
+	},
 	'test1 CreateFedoraObject': function(done) {
 		
 		fedora.createFedoraObject(testNamespace,testLabel, function(result){
