@@ -1,9 +1,10 @@
 var assert = require('assert');
-var fedora = require('../lib/fedora');
+var fedora = require('fedora');
 
 module.exports = {
 	'test1 GetFedoraList': function(beforeExit, assert) {
 		xml = fedora.getFedoraList();
+		assert.isDefined(xml);
 		assert.isNotNull(xml);
 	},
 	'test2 GetFedoraItem': function(beforeExit, assert) {
