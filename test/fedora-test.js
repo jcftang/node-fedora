@@ -8,14 +8,12 @@ module.exports = {
 		
 		fedora.createFedoraObject(testNamespace,testLabel, function(result){
 			testResult = result;
-			console.log("CreateFedoraObject" + testResult);
-			assert.includes(result,"node:");
+			assert.includes(result,testNamespace+":");
 			done();
 		});
 	},
 	'test2 GetFedoraList': function(done) {
-		console.log("GetFedoraList" + testResult);
-		fedora.getFedoraList(function(resultData){
+		fedora.getFedoraList("*",function(resultData){
 			assert.isDefined(resultData);
 			done();
 		}, 
@@ -24,7 +22,6 @@ module.exports = {
 		});
 	},
 	'test3 GetFedoraItem': function(done) {
-		console.log("GetFedoraItem" + testResult);
 		fedora.getFedoraObject(testResult, function(resultData){
 			assert.includes(resultData,testResult);
 			done();
@@ -33,8 +30,8 @@ module.exports = {
 	'test4 DeleteObject': function(done) {
 		
 		fedora.deleteObject(testResult, function(resultData){
-			console.log(resultData);
-			//assert.includes(resultData,"node:");
+			myregexp = new RegExp("[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]+Z");
+			assert.match(resultData,myregexp);
 			done();
 		});
 	},
