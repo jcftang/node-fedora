@@ -4,13 +4,6 @@ var testNamespace = "node";
 var testLabel = "A very nice test label";
 var testResult = "";
 module.exports = {
-	'test0 GetNextPID': function(done) {
-		
-		fedora.getNextPID("node", function(resultData){
-			assert.includes(resultData,"node:");
-			done();
-		});
-	},
 	'test1 CreateFedoraObject': function(done) {
 		
 		fedora.createFedoraObject(testNamespace,testLabel, function(result){
@@ -40,7 +33,9 @@ module.exports = {
 			myregexp = new RegExp("[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]+Z");
 			assert.match(resultData,myregexp);
 			done();
-		});
+		}, function(e){
+			console.log(e);
+			});
 	},
 	'test5 GetNextPID': function(done) {
 		
