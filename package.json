@@ -15,7 +15,7 @@
   "dependencies": {},
   "devDependencies": {
         "mocha": ">= 1.0.0",
-        "chai": ">= 0.5.2",
+        "chai": ">= 0.5.2"
   },
   "optionalDependencies": {},
   "engines": {
