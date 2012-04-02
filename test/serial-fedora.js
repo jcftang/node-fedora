@@ -1,5 +1,5 @@
-var assert = require('assert');
-var fedora = require('fedora');
+var assert = require('chai').assert;
+var fedora = require('../lib/fedora');
 var testNamespace = "node";
 var testLabel = "A very nice test label";
 var testResult = "";
@@ -8,7 +8,7 @@ module.exports = {
 		
 		fedora.createFedoraObject(testNamespace,testLabel, function(result){
 			testResult = result;
-			assert.includes(result,testNamespace+":");
+			assert.include(result,testNamespace+":");
 			done();
 		});
 	},
@@ -23,14 +23,14 @@ module.exports = {
 	},
 	'test3 GetFedoraItem': function(done) {
 		fedora.getFedoraObject(testResult, function(resultData){
-			assert.includes(resultData,testResult);
+			assert.include(resultData,testResult);
 			done();
 		});
 	},
 	'test4 DeleteObject': function(done) {
 		
 		fedora.deleteObject(testResult, function(resultData){
-			myregexp = new RegExp("[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]+Z");
+			var myregexp = new RegExp("[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]+Z");
 			assert.match(resultData,myregexp);
 			done();
 		}, function(e){
@@ -40,7 +40,7 @@ module.exports = {
 	'test5 GetNextPID': function(done) {
 		
 		fedora.getNextPID("node", function(resultData){
-			assert.includes(resultData,"node:");
+			assert.include(resultData,"node:");
 			done();
 		});
 	}
