@@ -1,5 +1,5 @@
 var assert = require('chai').assert;
-var fedora = require('../lib/fedora');
+var fedora = require('fedora');
 var testNamespace = "node";
 var testLabel = "A very nice test label";
 var testResult = "";
