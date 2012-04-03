@@ -30,7 +30,7 @@ module.exports = {
 	'test4 DeleteObject': function(done) {
 		
 		fedora.deleteObject(testResult, function(resultData){
-			var myregexp = new RegExp("[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]+Z");
+			var myregexp = new RegExp("[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.?[0-9]*Z");
 			assert.match(resultData,myregexp);
 			done();
 		}, function(e){
