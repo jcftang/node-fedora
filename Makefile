@@ -11,14 +11,12 @@ test-docs:
 
 test:
 	@NODE_PATH=./lib NODE_ENV=test ./node_modules/.bin/mocha \
-	--ui exports \
 	--reporter $(REPORTER) \
 	--timeout 50000 \
 	test/*.js
 
 coverage: lib-cov
 	@NODE_PATH=./lib-cov NODE_ENV=test ./node_modules/.bin/mocha \
-	--ui exports \
 	--reporter html-cov \
 	--timeout 50000 \
 	test/*.js > docs/coverage.html
