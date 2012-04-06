@@ -16,7 +16,8 @@
   "devDependencies": {
         "mocha": ">= 1.0.0",
         "chai": ">= 0.5.2",
-	"expresso": ">= 0.9.2"
+	"expresso": ">= 0.9.2",
+	"should": ">= >= 0.6.0"
   },
   "optionalDependencies": {},
   "engines": {
