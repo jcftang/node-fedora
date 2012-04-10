@@ -4,6 +4,8 @@ default:
 
 all:
 
+docs: test-md test-docs
+
 test-docs:
 	@$(MAKE) test REPORTER=doc \
 		| cat docs/head.html - docs/tail.html \
