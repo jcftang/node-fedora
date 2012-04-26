@@ -1,0 +1,27 @@
+#!/bin/sh
+usage() {
+	echo "usage: bump-version <version-id>"
+}
+
+if [ $# -ne 1 ]; then
+	usage
+	exit 1
+fi
+
+echo $1 > VERSION
+
+if ! sed 's/^  , \"version\":.*$/  , \"version\": \"'$1'\"/g' package.json > .package.json.new; then
+	echo "Could not replace VERSION variable." >&2
+	exit 2
+fi
+mv .package.json.new package.json
+
+./scripts/git-changelog
+if ! sed 's/^n.n.n/'$1'/g' History.md > .History.md.new; then
+	echo "Could not replace VERSION variable." >&2
+	exit 2
+fi
+mv .History.md.new History.md
+
+#git add VERSION package.json History.md
+#git commit -m "Bumped version number to $1" VERSION package.json History.md
