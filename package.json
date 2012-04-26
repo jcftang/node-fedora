@@ -7,19 +7,19 @@
   , "repository": {
     "type": "git"
     , "url": "ssh://git@howest-server.tchpc.tcd.ie/howest/node/node-fedora"
-  }
-  , "main": "./lib/fedora"
+  },
+  "main": "./lib/fedora"
   , "scripts": {
     "test": "make test"
-  }
-  , "dependencies": {}
-  , "devDependencies": {
-        , "mocha": ">= 1.0.0"
+  },
+  "dependencies": {},
+        "devDependencies": {
+        "mocha": ">= 1.0.0"
         , "chai": ">= 0.5.2"
 	, "expresso": ">= 0.9.2"
 	, "should": ">= >= 0.6.0"
-  }
-  , "optionalDependencies": {}
+  }, 
+  "optionalDependencies": {}
   , "engines": {
     "node": "*"
   }
