@@ -2,7 +2,7 @@
   "author": "Quirijn Groot Bluemink <quirijn.groot.bluemink@howest.com> (http://www.quirijngrootbluemink.com/)"
   , "name": "fedora"
   , "description": "Digital Repository Ireland - fedora backend operations"
-  , "version": "0.0.3"
+  , "version": "0.0.4"
   , "homepage": "http://www.tchpc.tcd.ie/"
   , "repository": {
     "type": "git"
