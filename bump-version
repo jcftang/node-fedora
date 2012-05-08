@@ -23,5 +23,5 @@ if ! sed 's/^n.n.n/'$1'/g' History.md > .History.md.new; then
 fi
 mv .History.md.new History.md
 
-#git add VERSION package.json History.md
-#git commit -m "Bumped version number to $1" VERSION package.json History.md
+git add VERSION package.json History.md
+git commit -m "Bumped version number to $1" VERSION package.json History.md
