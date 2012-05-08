@@ -2,12 +2,12 @@ var should = require('should');
 
 var fedora = require('fedora');
 
-var testNamespace = "anode";
+var testNamespace = "8node";
 var testLabel = "A very nice test label datastream";
 var testResult = "";
 
 var config = {
-	"uploadDirectory" : "/tmp/uploads/",
+	"uploadDirectory" : "http://ceres.tchpc.tcd.ie/~qgrootbl/uploads/",
 	"fedoraURL" : "howest-server.tchpc.tcd.ie",
 	"fedoraPort" : 9191,
 	"fedoraAuth" : "fedoraAdmin:admin"
@@ -40,10 +40,10 @@ describe('Test cases for the node-fedora package', function() {
 				done();
 			});
 		});
-	}), describe('Calling addDatastream(), to add a Datastream to an existing fedoraObject', function() {
+	}), describe('Calling addXMLDatastream(), to add a Datastream to an existing fedoraObject', function() {
 		it('should return the datastream', function(done) {
 			var data = '<oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd"><dc:title>jhdgj</dc:title><dc:identifier>4f8ffc8ff889d6ab44000001</dc:identifier></oai_dc:dc>'
-			fedora.addDatastream(testResult, "DC", data, function(resultData) {
+			fedora.addXMLDatastream(testResult, "DC", data, function(resultData) {
 
 				resultData.should.include(testResult);
 				done();
@@ -51,7 +51,19 @@ describe('Test cases for the node-fedora package', function() {
 				console.log(err);
 			});
 		});
-	}), describe('Calling deleteObject(), will delete an object from fedora', function() {
+	}), describe('Calling addMediaDatastream(), to add a Datastream to an existing fedoraObject', function() {
+		it('should return the datastream', function(done) {
+			var data = {
+				mediaPath: 'd9375fdf1fa331bbe0b4aa79f766972f0d408a29/Eagle_Fall_Sunrise.jpg'
+			}
+			fedora.addMediaDatastream(testResult, "IMAGE", data, function(resultData) {
+				resultData.should.include(testResult);
+				done();
+			}, function(err) {
+				console.log(err);
+			});
+		});
+	}), /*describe('Calling deleteObject(), will delete an object from fedora', function() {
 		it('should delete the requested object from fedora', function(done) {
 			fedora.deleteObject(testResult, function(resultData) {
 				var myregexp = new RegExp("[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.?[0-9]*Z");
@@ -61,7 +73,7 @@ describe('Test cases for the node-fedora package', function() {
 				should.not.exist(error);
 			});
 		})
-	}), describe('Calling getNextPID(), will get the next PID that is available from fedora', function() {
+	}),*/ describe('Calling getNextPID(), will get the next PID that is available from fedora', function() {
 		it('should return the next PID from fedora', function(done) {
 			fedora.getNextPID("node", function(resultData) {
 				resultData.should.include("node:");
