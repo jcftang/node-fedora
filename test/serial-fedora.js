@@ -7,7 +7,8 @@ var testLabel = "A very nice test label datastream";
 var testResult = "";
 
 var config = {
-	"uploadDirectory" : "http://ceres.tchpc.tcd.ie/~qgrootbl/uploads/",
+	"uploadDirectory" : "/home/qgrootbl/pubic_html/uploads/",
+	"publicDirectory" : "http://ceres.tchpc.tcd.ie/~qgrootbl/uploads/",
 	"fedoraURL" : "howest-server.tchpc.tcd.ie",
 	"fedoraPort" : 9191,
 	"fedoraAuth" : "fedoraAdmin:admin"
@@ -63,7 +64,7 @@ describe('Test cases for the node-fedora package', function() {
 				console.log(err);
 			});
 		});
-	}), /*describe('Calling deleteObject(), will delete an object from fedora', function() {
+	}), describe('Calling deleteObject(), will delete an object from fedora', function() {
 		it('should delete the requested object from fedora', function(done) {
 			fedora.deleteObject(testResult, function(resultData) {
 				var myregexp = new RegExp("[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}.?[0-9]*Z");
@@ -73,7 +74,7 @@ describe('Test cases for the node-fedora package', function() {
 				should.not.exist(error);
 			});
 		})
-	}),*/ describe('Calling getNextPID(), will get the next PID that is available from fedora', function() {
+	}), describe('Calling getNextPID(), will get the next PID that is available from fedora', function() {
 		it('should return the next PID from fedora', function(done) {
 			fedora.getNextPID("node", function(resultData) {
 				resultData.should.include("node:");
