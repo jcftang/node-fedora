@@ -54,7 +54,7 @@ describe('Test cases for the node-fedora package', function() {
 	}), describe('Calling addMediaDatastream(), to add a Datastream to an existing fedoraObject', function() {
 		it('should return the datastream', function(done) {
 			var data = {
-				mediaPath: 'd9375fdf1fa331bbe0b4aa79f766972f0d408a29/Eagle_Fall_Sunrise.jpg'
+				fileLocation: 'd9375fdf1fa331bbe0b4aa79f766972f0d408a29/Eagle_Fall_Sunrise.jpg'
 			}
 			fedora.addMediaDatastream(testResult, "IMAGE", data, function(resultData) {
 				resultData.should.include(testResult);
