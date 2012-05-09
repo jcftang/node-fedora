@@ -12,7 +12,8 @@
   , "scripts": {
     "test": "make test"
   },
-  "dependencies": {},
+  "dependencies": {
+  , "mime":">= 1.2.5"},
         "devDependencies": {
         "mocha": ">= 1.0.0"
         , "chai": ">= 0.5.2"
