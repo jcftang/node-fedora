@@ -1,5 +1,4 @@
 var should = require('should');
-
 var fedora = require('fedora');
 
 var testNamespace = "8node";
@@ -45,7 +44,6 @@ describe('Test cases for the node-fedora package', function() {
 		it('should return the datastream', function(done) {
 			var data = '<oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd"><dc:title>jhdgj</dc:title><dc:identifier>4f8ffc8ff889d6ab44000001</dc:identifier></oai_dc:dc>'
 			fedora.addXMLDatastream(testResult, "DC", data, function(resultData) {
-
 				resultData.should.include(testResult);
 				done();
 			}, function(err) {
