@@ -4,11 +4,24 @@ Library to be able to query a Fedora Commons instance from Node.js using the off
 
 ## Configuration
 
-In the fedora.js file you will have to change the following:
-	host: 'host IP or name',
-	port: 9191,
-	auth: 'username:password'
+There are 2 ways to configure the package:
+
+Hard coding it into lib/fedora.js
+	fedora.js contains a commented out snippet that could be used
+
+The recommended way is using the configure method called from your application or library
+	var fedora = require("fedora")
+	var config = {
+		fedoraURL : "localhost", // Don't add http://
+		fedoraPort : 9090,
+		fedoraAuth : "fedoraAdmin:admin"
+	};
+	fedora.configure(config)
 
 ## Testing
 
-There are some tests which can be run, the tests use the 'expresso' framework and assumes that there is fedora-commons repository installed.
+There are some tests which can be run, the tests use the 'mocha' framework and assumes that there is fedora-commons repository installed.
+
+## Opportunities
+
+Implementing all of the functionality from Fedora Commons.
