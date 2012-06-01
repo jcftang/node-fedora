@@ -10,7 +10,7 @@ app.use(express.static(__dirname + '/public'));
 app.listen(port);
 
 
-var testNamespace = "8node";
+var testNamespace = "5node";
 var testLabel = "A very nice test label datastream";
 var testResult = "";
 
@@ -85,7 +85,7 @@ describe('Test cases for the node-fedora package', function() {
 	}), describe('Calling modifyMediaDatastream(), to add a Datastream to an existing fedoraObject', function() {
 		it('should return the datastream', function(done) {
 			var data = {
-				fileLocation: 'd9375fdf1fa331bbe0b4aa79f766972f0d408a29/Eagle_Fall_Sunrise.jpg'
+				fileLocation: '05b503d8db65a2a3c44db01e89eb53a9421edd8c/Electric_Car.jpg'
 			}
 			fedora.modifyMediaDatastream(testResult, "IMAGE", data, function(resultData) {
 				resultData.should.include(testResult);
