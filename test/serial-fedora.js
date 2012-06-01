@@ -1,5 +1,14 @@
 var should = require('should');
 var fedora = require('fedora');
+var express = require('express');
+
+var port = 5001;
+var socket = 'http://localhost:' + port;
+
+var app = module.exports = express.createServer();
+app.use(express.static(__dirname + '/public'));
+app.listen(port);
+
 
 var testNamespace = "8node";
 var testLabel = "A very nice test label datastream";
@@ -7,7 +16,7 @@ var testResult = "";
 
 var config = {
 	"uploadDirectory" : "/home/qgrootbl/pubic_html/uploads/",
-	"publicDirectory" : "http://ceres.tchpc.tcd.ie/~qgrootbl/uploads/",
+	"publicDirectory" : socket+"/uploads/",
 	"fedoraURL" : "howest-server.tchpc.tcd.ie",
 	"fedoraPort" : 9191,
 	"fedoraAuth" : "fedoraAdmin:admin"
@@ -64,7 +73,7 @@ describe('Test cases for the node-fedora package', function() {
 	}), describe('Calling addMediaDatastream(), to add a Datastream to an existing fedoraObject', function() {
 		it('should return the datastream', function(done) {
 			var data = {
-				fileLocation: 'd9375fdf1fa331bbe0b4aa79f766972f0d408a29/Eagle_Fall_Sunrise.jpg'
+				fileLocation: '05b503d8db65a2a3c44db01e89eb53a9421edd8c/Electric_Car.jpg'
 			}
 			fedora.addMediaDatastream(testResult, "IMAGE", data, function(resultData) {
 				resultData.should.include(testResult);
