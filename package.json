@@ -6,7 +6,7 @@
   , "homepage": "http://www.tchpc.tcd.ie/"
   , "repository": {
     "type": "git"
-    , "url": "ssh://git@howest-server.tchpc.tcd.ie/howest/node/node-fedora"
+    , "url": "https://github.com/jcftang/node-fedora"
   },
   "main": "./lib/fedora"
   , "scripts": {
