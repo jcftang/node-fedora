@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/jcftang/node-fedora.png)](http://travis-ci.org/jcftang/node-fedora)
 # Fedora Library
 
 Library to be able to query a Fedora Commons instance from Node.js using the official Fedora REST API.
